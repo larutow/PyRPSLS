@@ -8,8 +8,8 @@ class Game:
 
     def __init__(self):
         self.menuOptions = ["1P Game", "2P Game", "Game Setup", "Rules / Help", "Exit Game"]
-        self.p1 = Player()
-        self.p2 = Player()
+        self.p1 = Player("P1")
+        self.p2 = Player("P2")
         self.bestOf = 3
         self.mode = "RPSLS"
         self.gameOptions = ["Toggle P1AI", "Toggle RPS Classic Mode"]
@@ -86,20 +86,19 @@ class Game:
         self.MainMenu()
 
     def MainMenu(self):
-        print("Press 1 for Human vs AI, Press 2 for Human vs Human")
+
         userInput = input("Press 1 for Human vs AI, Press 2 for Human vs Human")
 
-        if userInput != 1 or userInput != 2:
-            print("Invalid option - Please choose either 1 or 2")
+        if userInput != '1' and userInput != '2':
             self.MainMenu()
 
-        if userInput == 1:
-            self.player1 = Human("P1")
-            self.player2 = Ai("P2", random)
+        if userInput == "1":
+            self.p1 = Human("P1")
+            self.p2 = Ai("P2", random)
             #console clear
             self.PlayGame()
         else:
-            self.player1 = Human
-            self.player2 = Human
+            self.p1 = Human("P1")
+            self.p2 = Human("P2")
             #console clear
             self.PlayGame()
