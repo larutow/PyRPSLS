@@ -34,8 +34,8 @@ class Game:
         self.p1.score = 0
 
         userInput = input("Play again? - Y for yes, N or other char - home menu")
-        if userInput == "Y" or userInput == "y":
-            self.PlayGame()
+        if userInput == 'Y' or userInput == 'y':
+            self.MainMenu()
         else:
             self.DontPlayAgain()
 
@@ -45,13 +45,13 @@ class Game:
 
     def AnnounceVictor(self):
         if(self.p1.score > self.p2.score):
-            print("Game Over - P1 wins: "+self.p1.score+" - "+self.p2.score)
+            print("Game Over - P1 wins: "+str(self.p1.score)+" - "+str(self.p2.score))
         else:
-            print("Game Over - P2 wins: P2," + self.p2.score + " - P1," + self.p1.score)
+            print("Game Over - P2 wins: P2," +str(self.p2.score)+ " - P1," +str(self.p1.score))
 
     def ShowScores(self):
         print("Scoreboard:"+self.p1.name+" - "+self.p2.name)
-        print(self.p1.score+" - "+self.p2.score)
+        print(str(self.p1.score)+" - "+str(self.p2.score))
         input("Enter any key to continue.")
 
     def CompareGestures(self):
